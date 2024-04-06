@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MoviePage = () => {
-  return <div></div>;
+  return <div>무비페이지</div>;
 };
 
 export default MoviePage;
