@@ -6,14 +6,14 @@ const NotFoundPage = () => {
     <div className="not-wrap">
       <div className="svg-container"></div>
       <div className="title-container">
-        <h1 className="title">404</h1>
+        <h1 className="title-404">404</h1>
         <svg
           className="svg-icon"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="-1.785 -1.785 49.98 49.98"
-          height="170"
-          width="170"
+          height="200"
+          width="200"
           id="Threat-Monitor--Streamline-Flex"
         >
           <desc>Threat Monitor Streamline Icon: https://streamlinehq.com</desc>
@@ -68,7 +68,7 @@ const NotFoundPage = () => {
             ></path>
           </g>
         </svg>
-        <p>PAGE NOT FOUND</p>
+        <p className="page-not">PAGE NOT FOUND</p>
       </div>
     </div>
   );

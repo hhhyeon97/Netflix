@@ -2,25 +2,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 100vh;
+  background-color: black;
+  font-family: 'Lilita One', sans-serif;
 }
 
 .title-container {
   text-align: center;
 }
 
-.title {
-  letter-spacing: 5px;
-  font-size: 80px;
+.title-404 {
+  letter-spacing: 7px;
+  font-size: 100px;
   color: white;
 }
 
-body {
-  background-color: black;
-  font-family: 'Lilita One', sans-serif;
-}
-
-p {
+.page-not {
   color: white;
-  font-size: 35px;
+  font-size: 45px;
 }
