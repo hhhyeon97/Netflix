@@ -8,7 +8,7 @@ import { Outlet } from 'react-router-dom';
 
 const AppLayout = () => {
   return (
-    <div>
+    <div className="navbar-wrap">
       <Navbar expand="lg" className="bg-dark text-light">
         <Container fluid>
           <Navbar.Brand href="#">
