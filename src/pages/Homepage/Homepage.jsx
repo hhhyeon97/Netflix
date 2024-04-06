@@ -10,7 +10,6 @@ import Banner from './components/Banner/Banner';
 const Homepage = () => {
   return (
     <div className="home-wrap">
-      홈페이지
       <Banner />
     </div>
   );
