@@ -1,0 +1,26 @@
+.not-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.title-container {
+  text-align: center;
+}
+
+.title {
+  letter-spacing: 5px;
+  font-size: 80px;
+  color: white;
+}
+
+body {
+  background-color: black;
+  font-family: 'Lilita One', sans-serif;
+}
+
+p {
+  color: white;
+  font-size: 35px;
+}
