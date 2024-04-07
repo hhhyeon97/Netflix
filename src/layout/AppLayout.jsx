@@ -12,7 +12,7 @@ const AppLayout = () => {
       <Navbar expand="lg" className="bg-dark text-light">
         <Container fluid>
           <Navbar.Brand href="#">
-            <img src="logo.png" width={90} />
+            <img src="logo.png" width={90} alt="" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
