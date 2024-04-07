@@ -31,7 +31,9 @@ const PopularMovieSlide = () => {
   }
   return (
     <div className="popular-slide-wrap">
-      <h3>Popular Movies</h3>
+      <h3>
+        <span className="hot-text">HOT</span>한 영화 TOP 20
+      </h3>
       <Carousel
         infinite={true}
         centerMode={true}

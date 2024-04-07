@@ -12,14 +12,15 @@ const AppLayout = () => {
     <div className="navbar-wrap">
       <Navbar expand="lg" className="bg-body-dark text-light">
         <Container fluid className="wrap-con">
-          <Navbar.Brand href="#">
-            {/* <img src="logo.png" width={120} alt="" /> */}
-            <img
+          <Navbar.Brand href="#" className="text-light logo">
+            {/* <img src="logo.png" width={110} alt="" /> */}
+            {/* <img
               id="logo"
               src="https://www.wavve.com/img/ci-wavve.5b304973.svg"
               width={120}
               alt=""
-            />
+            /> */}
+            SOLFLIX
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -35,7 +36,7 @@ const AppLayout = () => {
                 Movie
               </Nav.Link>
               <Nav.Link href="/tv" className="text-light link-st">
-                Drama
+                TV
               </Nav.Link>
             </Nav>
             <Form className="d-flex">

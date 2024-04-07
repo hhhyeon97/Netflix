@@ -1,5 +1,6 @@
 import React from 'react';
 import './NotFoundPage.style.css';
+import { Link } from 'react-router-dom';
 
 const NotFoundPage = () => {
   return (
@@ -69,6 +70,9 @@ const NotFoundPage = () => {
           </g>
         </svg>
         <p className="page-not">PAGE NOT FOUND</p>
+        <p className="go-home">
+          <Link to="/">Home으로 돌아가기</Link>
+        </p>
       </div>
     </div>
   );

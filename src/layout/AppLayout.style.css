@@ -1,3 +1,8 @@
+@font-face {
+  font-family: '테스트폰트';
+  src: url(../../public/ManilaSansBld.otf);
+}
+
 .navbar-wrap {
   font-family: 'Roboto', sans-serif;
 }
@@ -6,11 +11,17 @@
   height: 70px;
 }
 
-/* .link-st {
-    링크 폰트 적용 왜 안 되누
-} */
+.link-st {
+  font-weight: bold !important;
+  font-size: 17px !important;
+  margin-left: 5px;
+}
+.link-st:hover {
+  color: rgb(243, 245, 144) !important;
+}
 
-#logo {
-  position: relative;
-  bottom: 5px;
+.logo {
+  font-family: '테스트폰트';
+  font-size: 30px !important;
+  margin-left: 20px;
 }

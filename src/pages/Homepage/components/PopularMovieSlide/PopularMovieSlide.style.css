@@ -6,4 +6,9 @@
 .popular-slide-wrap h3 {
   padding: 2rem;
   color: #f0f4f5;
+  font-family: 'Black Han Sans', sans-serif;
+  letter-spacing: 4px;
+}
+.hot-text {
+  color: rgb(207, 98, 98);
 }
