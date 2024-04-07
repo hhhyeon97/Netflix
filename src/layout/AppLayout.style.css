@@ -8,7 +8,7 @@
 }
 
 .wrap-con {
-  height: 70px;
+  height: 60px;
 }
 
 .link-st {
@@ -17,7 +17,7 @@
   margin-left: 5px;
 }
 .link-st:hover {
-  color: rgb(243, 245, 144) !important;
+  color: rgb(245, 144, 144) !important;
 }
 
 .logo {

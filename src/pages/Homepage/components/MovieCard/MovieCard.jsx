@@ -1,7 +1,7 @@
 import React from 'react';
-import { Badge } from 'react-bootstrap';
 import './MovieCard.style.css';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 const MovieCard = ({ movie }) => {
   return (
     <div
@@ -14,16 +14,12 @@ const MovieCard = ({ movie }) => {
       }}
     >
       <div className="overlay">
-        <h1>{movie.title}</h1>
-        {movie.genre_ids.map((id) => (
-          <Badge bg="light" text="black">
-            {id}
-          </Badge>
-        ))}
+        <h4>{movie.title}</h4>
         <div>
-          <div>{movie.vote_average}</div>
-          <div>{movie.popularity}</div>
-          <div>{movie.adult ? 'over18' : 'under18'}</div>
+          <div>
+            <FontAwesomeIcon icon={faStar} /> {movie.vote_average.toFixed(1)}
+          </div>
+          <div>수리예정입니다🛠️</div>
         </div>
       </div>
     </div>
