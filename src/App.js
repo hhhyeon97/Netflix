@@ -5,6 +5,7 @@ import Homepage from './pages/Homepage/Homepage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import MoviePage from './pages/Movies/MoviePage';
 import MovieDetail from './pages/MovieDetail/MovieDetail';
+import TvPage from './pages/Tv/TvPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // 홈페이지
 // 영화 전체 페이지 (검색)
@@ -19,6 +20,7 @@ function App() {
             <Route index element={<MoviePage />} />
             <Route path=":id" element={<MovieDetail />} />
           </Route>
+          <Route path="tv" element={<TvPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

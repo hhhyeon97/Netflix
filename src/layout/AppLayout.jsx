@@ -5,14 +5,21 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Outlet } from 'react-router-dom';
+import './AppLayout.style.css';
 
 const AppLayout = () => {
   return (
     <div className="navbar-wrap">
-      <Navbar expand="lg" className="bg-dark text-light">
-        <Container fluid>
+      <Navbar expand="lg" className="bg-body-dark text-light">
+        <Container fluid className="wrap-con">
           <Navbar.Brand href="#">
-            <img src="logo.png" width={120} alt="" />
+            {/* <img src="logo.png" width={120} alt="" /> */}
+            <img
+              id="logo"
+              src="https://www.wavve.com/img/ci-wavve.5b304973.svg"
+              width={120}
+              alt=""
+            />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -21,11 +28,14 @@ const AppLayout = () => {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              <Nav.Link href="/" className="text-light">
+              <Nav.Link href="/" className="text-light link-st">
                 Home
               </Nav.Link>
-              <Nav.Link href="/movies" className="text-light">
-                Movies
+              <Nav.Link href="/movies" className="text-light link-st">
+                Movie
+              </Nav.Link>
+              <Nav.Link href="/tv" className="text-light link-st">
+                Drama
               </Nav.Link>
             </Nav>
             <Form className="d-flex">
@@ -35,7 +45,7 @@ const AppLayout = () => {
                 className="me-2"
                 aria-label="Search"
               />
-              <Button variant="outline-danger">Search</Button>
+              <Button variant="outline-light">Search</Button>
             </Form>
           </Navbar.Collapse>
         </Container>
