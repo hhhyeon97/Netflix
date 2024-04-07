@@ -2,3 +2,8 @@
   overflow: hidden;
   height: 440px;
 }
+
+.popular-slide-wrap h3 {
+  padding: 2rem;
+  color: #f0f4f5;
+}
