@@ -12,7 +12,7 @@ const AppLayout = () => {
     <div className="navbar-wrap">
       <Navbar expand="lg" className="bg-body-dark text-light">
         <Container fluid className="wrap-con">
-          <Navbar.Brand href="#" className="text-light logo">
+          <Navbar.Brand href="/" className="text-light logo">
             {/* <img src="logo.png" width={110} alt="" /> */}
             {/* <img
               id="logo"

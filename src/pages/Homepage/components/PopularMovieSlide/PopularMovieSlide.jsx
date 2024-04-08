@@ -14,7 +14,11 @@ const responsive = {
     breakpoint: { max: 1024, min: 464 },
     items: 4,
   },
-  mobile: {
+  mobile1: {
+    breakpoint: { max: 768, min: 0 },
+    items: 2,
+  },
+  mobile2: {
     breakpoint: { max: 464, min: 0 },
     items: 1,
   },
@@ -22,7 +26,7 @@ const responsive = {
 
 const PopularMovieSlide = () => {
   const { data, isLoading, isError, error } = usePopularMoviesQuery();
-
+  console.log(data);
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
@@ -40,6 +44,8 @@ const PopularMovieSlide = () => {
         containerClass="carousel-container"
         itemClass="movie-item"
         responsive={responsive}
+        autoPlay={true}
+        autoPlaySpeed={3000}
       >
         {data.results.map((movie, index) => (
           <MovieCard movie={movie} key={index} />
