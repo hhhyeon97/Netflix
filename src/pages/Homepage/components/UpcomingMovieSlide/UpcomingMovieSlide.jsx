@@ -2,10 +2,10 @@ import React from 'react';
 import { Alert } from 'bootstrap';
 import MovieSlider from '../../../../common/MovieSlider/MovieSlider';
 import { responsive } from '../../../../constants/responsive';
-import { useTopRateMoviesQuery } from '../../../../hooks/useTopRateMovies';
+import { useUpcomingMoviesQuery } from '../../../../hooks/useUpcomingMovies';
 
-const TopRatedMovieSlide = () => {
-  const { data, isLoading, isError, error } = useTopRateMoviesQuery();
+const UpcomingMovieSlide = () => {
+  const { data, isLoading, isError, error } = useUpcomingMoviesQuery();
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -17,11 +17,11 @@ const TopRatedMovieSlide = () => {
   return (
     <div>
       <MovieSlider
-        title="Top Rated Movies"
+        title="Upcoming Movies"
         movies={data.results}
         responsive={responsive}
       />
     </div>
   );
 };
-export default TopRatedMovieSlide;
+export default UpcomingMovieSlide;

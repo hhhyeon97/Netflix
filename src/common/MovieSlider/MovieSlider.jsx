@@ -10,7 +10,7 @@ const MovieSlider = ({ title, movies, responsive }) => {
   return (
     <div className="popular-slide-wrap">
       <h3>
-        <FontAwesomeIcon icon={faFire} color="#85a0de" /> {title}
+        <FontAwesomeIcon icon={faFire} color="#6390d4" /> {title}
       </h3>
       <Carousel
         infinite={true}
