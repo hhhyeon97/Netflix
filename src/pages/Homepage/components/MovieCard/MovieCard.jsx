@@ -2,6 +2,8 @@ import React from 'react';
 import './MovieCard.style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { Badge } from 'react-bootstrap';
+
 const MovieCard = ({ movie }) => {
   return (
     <div
@@ -26,6 +28,11 @@ const MovieCard = ({ movie }) => {
             &nbsp;
             {Math.floor(movie?.popularity)}
           </div>
+          {movie?.adult === false && (
+            <div>
+              <span className="all-color">ALL</span>
+            </div>
+          )}
         </div>
       </div>
     </div>
