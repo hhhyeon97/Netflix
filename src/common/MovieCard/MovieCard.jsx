@@ -2,9 +2,13 @@ import React from 'react';
 import './MovieCard.style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 // import { Badge } from 'react-bootstrap';
 
 const MovieCard = ({ movie }) => {
+  const { data: genreData } = useMovieGenreQuery();
+  console.log('ggg', genreData);
+
   return (
     <div
       className="movie-card"

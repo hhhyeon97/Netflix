@@ -2,10 +2,10 @@ import React from 'react';
 import { Alert } from 'bootstrap';
 import MovieSlider from '../../../../common/MovieSlider/MovieSlider';
 import { responsive } from '../../../../constants/responsive';
-import { useTopRateMoviesQuery } from '../../../../hooks/useTopRateMovies';
+import { useTopRatedMoviesQuery } from '../../../../hooks/useTopRatedMovies';
 
 const TopRatedMovieSlide = () => {
-  const { data, isLoading, isError, error } = useTopRateMoviesQuery();
+  const { data, isLoading, isError, error } = useTopRatedMoviesQuery();
 
   if (isLoading) {
     return <h1>Loading...</h1>;
