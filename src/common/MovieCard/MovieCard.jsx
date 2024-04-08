@@ -3,11 +3,21 @@ import './MovieCard.style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
-// import { Badge } from 'react-bootstrap';
 
 const MovieCard = ({ movie }) => {
   const { data: genreData } = useMovieGenreQuery();
-  console.log('ggg', genreData);
+  // console.log('ggg', genreData);
+
+  const showGenre = (genreIdList) => {
+    if (!genreData) return [];
+    const genreNameList = genreIdList
+      .map((id) => {
+        const genreObj = genreData.find((genre) => genre.id === id);
+        return genreObj.name;
+      })
+      .slice(0, 2); // 최대 2개의 장르만 유지
+    return genreNameList;
+  };
 
   return (
     <div
@@ -22,6 +32,13 @@ const MovieCard = ({ movie }) => {
       <div className="overlay">
         <div>
           <h4>{movie?.title}</h4>
+        </div>
+        <div>
+          {showGenre(movie.genre_ids).map((genre, index) => (
+            <span key={index} className="me-1 blue-badge">
+              {genre}
+            </span>
+          ))}
         </div>
         <div className="ratings">
           <div>
