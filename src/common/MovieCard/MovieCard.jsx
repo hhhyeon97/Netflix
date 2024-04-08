@@ -2,7 +2,7 @@ import React from 'react';
 import './MovieCard.style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
-import { Badge } from 'react-bootstrap';
+// import { Badge } from 'react-bootstrap';
 
 const MovieCard = ({ movie }) => {
   return (
