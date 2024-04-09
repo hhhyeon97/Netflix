@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Outlet } from 'react-router-dom';
 import './AppLayout.style.css';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 const AppLayout = () => {
   const [keyword, setKeyword] = useState('');
   const navigate = useNavigate();
@@ -22,7 +24,8 @@ const AppLayout = () => {
         <div className="nav-left">
           <div className="nav-logo">
             <Link to="/" className="logo-text">
-              SOLFLIX
+              <span style={{ color: '#72a4f0' }}>S</span>
+              OLFLIX
             </Link>
           </div>
           <div className="navbar-list">
@@ -32,15 +35,20 @@ const AppLayout = () => {
           </div>
         </div>
         <Form className="d-flex" onSubmit={searchByKeyword}>
-          <Form.Control
+          <input
             type="search"
             placeholder="제목, 장르, 배우로 찾아보세요"
-            className={`me-2 ${keyword ? '' : 'form-mobile-hidden'}`}
-            aria-label="Search"
+            className="me-2 search-input"
             value={keyword}
             onChange={(event) => setKeyword(event.target.value)}
           />
-          <Button variant="outline-light">Search</Button>
+          <button className="search-btn">
+            <FontAwesomeIcon
+              icon={faSearch}
+              color="#fff"
+              className="search-icon"
+            />
+          </button>
         </Form>
       </div>
       <Outlet />

@@ -38,17 +38,29 @@
   font-size: 35px;
   margin-left: 10px;
 }
+.search-input {
+  border-radius: 6px;
+  border: 3px solid #6b95d4;
+  width: 220px;
+  height: 45px;
+  padding-left: 10px;
+}
 
-.form-control::placeholder {
+.search-btn {
+  border: none;
+  background: none;
+  outline: none;
+}
+.search-icon {
+  font-size: 30px;
+  opacity: 0.9;
+}
+.search-input::placeholder {
   font-size: 12px;
-  font-family: 'Roboto', sans-serif;
 }
 
 @media screen and (max-width: 768px) {
   .navbar-list {
-    display: none;
-  }
-  .form-mobile-hidden {
     display: none;
   }
 }
