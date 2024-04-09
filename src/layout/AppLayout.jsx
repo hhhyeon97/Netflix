@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -6,20 +6,24 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Outlet } from 'react-router-dom';
 import './AppLayout.style.css';
+import { useNavigate } from 'react-router-dom';
 
 const AppLayout = () => {
+  const [keyword, setKeyword] = useState('');
+  const navigate = useNavigate();
+
+  const searchByKeyword = (event) => {
+    event.preventDefault(); // 새로고침 방지
+    // url 바꿔주기
+    navigate(`/movies?q=${keyword}`);
+    setKeyword('');
+  };
+
   return (
     <div className="navbar-wrap">
       <Navbar expand="lg" className="bg-body-dark text-light">
         <Container fluid className="wrap-con">
           <Navbar.Brand href="/" className="text-light logo">
-            {/* <img src="logo.png" width={110} alt="" /> */}
-            {/* <img
-              id="logo"
-              src="https://www.wavve.com/img/ci-wavve.5b304973.svg"
-              width={120}
-              alt=""
-            /> */}
             SOLFLIX
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -39,12 +43,14 @@ const AppLayout = () => {
                 TV
               </Nav.Link>
             </Nav>
-            <Form className="d-flex">
+            <Form className="d-flex" onSubmit={searchByKeyword}>
               <Form.Control
                 type="search"
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
+                value={keyword}
+                onChange={(event) => setKeyword(event.target.value)}
               />
               <Button variant="outline-light">Search</Button>
             </Form>
