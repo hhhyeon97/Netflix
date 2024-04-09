@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MoviePage.style.css';
 import { useSearchMovieQuery } from '../../hooks/useSearchMovie';
 import { useSearchParams } from 'react-router-dom';
 import { Alert, Container, Row, Col } from 'react-bootstrap';
 import MovieCard from '../../common/MovieCard/MovieCard';
+import ReactPaginate from 'react-paginate';
 // 경로 2가지
 // nav바에서 클릭해서 온 경우 = > popularMovie 보여주기
 // keyword를 입력해서 온 경우 = > keyword와 관련된 영화들을 보여줌
@@ -15,9 +16,25 @@ import MovieCard from '../../common/MovieCard/MovieCard';
 
 const MoviePage = () => {
   const [query, setQuery] = useSearchParams();
+  const [page, setPage] = useState(1);
   const keyword = query.get('q');
-  const { data, isLoading, isError, error } = useSearchMovieQuery({ keyword });
-  //console.log('ddd', data);
+  const { data, isLoading, isError, error } = useSearchMovieQuery({
+    keyword,
+    page,
+  });
+  // console.log('ddd', data);
+
+  const handlePageClick = ({ selected }) => {
+    // console.log('page', page);
+    setPage(selected + 1);
+  };
+
+  // 최대 페이지 수
+  const maxPageCount = 100;
+
+  // 페이지 수가 최대 페이지 수를 초과하는 경우, 최대 페이지 수로 설정
+  const pageCount =
+    data?.total_pages > maxPageCount ? maxPageCount : data?.total_pages;
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -41,6 +58,27 @@ const MoviePage = () => {
               </Col>
             ))}
           </Row>
+          <ReactPaginate
+            nextLabel="next >"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            marginPagesDisplayed={2}
+            pageCount={pageCount}
+            previousLabel="< previous"
+            pageClassName="page-item"
+            pageLinkClassName="page-link"
+            previousClassName="page-item"
+            previousLinkClassName="page-link"
+            nextClassName="page-item"
+            nextLinkClassName="page-link"
+            breakLabel="..."
+            breakClassName="page-item"
+            breakLinkClassName="page-link"
+            containerClassName="pagination"
+            activeClassName="active"
+            renderOnZeroPageCount={null}
+            forcePage={page - 1}
+          />
         </Col>
       </Row>
     </Container>
