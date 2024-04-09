@@ -5,6 +5,8 @@ import { useSearchParams } from 'react-router-dom';
 import { Alert, Container, Row, Col } from 'react-bootstrap';
 import MovieCard from '../../common/MovieCard/MovieCard';
 import ReactPaginate from 'react-paginate';
+import Spinner from 'react-bootstrap/Spinner';
+
 // 경로 2가지
 // nav바에서 클릭해서 온 경우 = > popularMovie 보여주기
 // keyword를 입력해서 온 경우 = > keyword와 관련된 영화들을 보여줌
@@ -37,7 +39,13 @@ const MoviePage = () => {
     data?.total_pages > maxPageCount ? maxPageCount : data?.total_pages;
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return (
+      <div className="loading-spinner">
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      </div>
+    );
   }
 
   if (isError) {

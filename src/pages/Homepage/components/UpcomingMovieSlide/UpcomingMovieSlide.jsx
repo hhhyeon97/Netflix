@@ -3,12 +3,17 @@ import { Alert } from 'bootstrap';
 import MovieSlider from '../../../../common/MovieSlider/MovieSlider';
 import { responsive } from '../../../../constants/responsive';
 import { useUpcomingMoviesQuery } from '../../../../hooks/useUpcomingMovies';
+import Spinner from 'react-bootstrap/Spinner';
 
 const UpcomingMovieSlide = () => {
   const { data, isLoading, isError, error } = useUpcomingMoviesQuery();
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return (
+      <div className="loading-spinner">
+        <Spinner animation="border" role="status" />
+      </div>
+    );
   }
   if (isError) {
     return <Alert variant="danger">{error.message}</Alert>;

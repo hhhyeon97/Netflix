@@ -4,12 +4,17 @@ import { Alert } from 'bootstrap';
 import './PopularMovieSlide.style.css';
 import MovieSlider from '../../../../common/MovieSlider/MovieSlider';
 import { responsive } from '../../../../constants/responsive';
+import Spinner from 'react-bootstrap/Spinner';
 
 const PopularMovieSlide = () => {
   const { data, isLoading, isError, error } = usePopularMoviesQuery();
   //console.log(data);
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return (
+      <div className="loading-spinner">
+        <Spinner animation="border" role="status" />
+      </div>
+    );
   }
   if (isError) {
     return <Alert variant="danger">{error.message}</Alert>;
