@@ -31,13 +31,13 @@ const Banner = () => {
         backgroundRepeat: 'no-repeat',
         backgroundImage:
           'url(' +
-          `https://media.themoviedb.org/t/p/w1066_and_h600_bestv2${data.results[11].backdrop_path}` +
+          `https://media.themoviedb.org/t/p/w1066_and_h600_bestv2${data.results[10].backdrop_path}` +
           ')',
       }}
     >
       <div className="text-white banner-text-area">
-        <h1>{data.results[11].title}</h1>
-        <p>{data.results[11].overview}</p>
+        <h1>{data.results[10].title}</h1>
+        <p>{data.results[10].overview}</p>
       </div>
     </div>
   );
