@@ -26,7 +26,9 @@ const AppLayout = () => {
     <div>
       <nav class="navbar">
         <div class="navbar-logo">
-          <Link to="/">SOLFLIX</Link>
+          <Link to="/">
+            <span className="logo-color">S</span>OLFLIX
+          </Link>
         </div>
         <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           <li>
@@ -58,7 +60,7 @@ const AppLayout = () => {
           </li>
         </ul>
         <FontAwesomeIcon
-          className={`navbar-togglebtn ${isMenuOpen ? 'active' : ''}`}
+          className={`navbar-toggle-btn ${isMenuOpen ? 'active' : ''}`}
           onClick={handleToggleMenu}
           icon={faBars}
           color="#fff"
