@@ -11,7 +11,7 @@ const AppLayout = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleMenuToggle = () => {
+  const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
@@ -23,48 +23,47 @@ const AppLayout = () => {
   };
 
   return (
-    <div className="wrap">
-      <div className="navbar-wrap">
-        <div className="nav-left">
-          <div className="nav-logo">
-            <Link to="/" className="logo-text">
-              <span style={{ color: '#72a4f0' }}>S</span>
-              OLFLIX
-            </Link>
-          </div>
-          <div className={`navbar-list ${isMenuOpen ? 'active' : ''}`}>
-            <Link to="/">Home</Link>
-            <Link to="/movies">Movie</Link>
-            <Link to="/tv">TV</Link>
-          </div>
+    <div>
+      <nav class="navbar">
+        <div class="navbar-logo">
+          <Link to="/">SOLFLIX</Link>
         </div>
-        <form className={`d-flex search-area`} onSubmit={searchByKeyword}>
-          <input
-            type="search"
-            placeholder="제목, 장르, 배우로 찾아보세요"
-            className={`me-2 search-input search-toggle ${
-              isMenuOpen ? 'active' : ''
-            }`}
-            value={keyword}
-            onChange={(event) => setKeyword(event.target.value)}
-          />
-          <button
-            className={`search-btn search-toggle ${isMenuOpen ? 'active' : ''}`}
-          >
-            <FontAwesomeIcon
-              icon={faSearch}
-              color="#fff"
-              className="search-icon"
-            />
-          </button>
-        </form>
+        <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/movies">Movie</Link>
+          </li>
+          <li>
+            <Link to="/tv">TV</Link>
+          </li>
+        </ul>
+        <ul className={`navbar-search ${isMenuOpen ? 'active' : ''}`}>
+          <li>
+            <form className={`d-flex search-area`} onSubmit={searchByKeyword}>
+              <input
+                type="search"
+                className="search-in"
+                placeholder="search"
+                value={keyword}
+                onChange={(event) => setKeyword(event.target.value)}
+              />
+              <FontAwesomeIcon
+                className="search-con"
+                icon={faSearch}
+                color="#fff"
+              />
+            </form>
+          </li>
+        </ul>
         <FontAwesomeIcon
+          className={`navbar-togglebtn ${isMenuOpen ? 'active' : ''}`}
+          onClick={handleToggleMenu}
           icon={faBars}
-          color="#FFF"
-          className="menu-toggle"
-          onClick={handleMenuToggle}
+          color="#fff"
         />
-      </div>
+      </nav>
       <Outlet />
     </div>
   );

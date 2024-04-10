@@ -1,99 +1,115 @@
+ul li {
+  list-style: none;
+}
+
 @font-face {
   font-family: '로고폰트';
   src: url(../../public/Strenuous3D.ttf);
 }
 
-.navbar-wrap {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 14px;
-}
-.navbar-list a,
-.logo-text {
-  color: white;
-  text-decoration: none;
-  transition: 0.3s;
+  padding: 8px 12px;
 }
 
-.nav-left {
+.navbar-logo a {
+  font-size: 40px;
+  font-family: '로고폰트';
+  padding-left: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-menu {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: auto;
 }
 
-.navbar-list {
+.navbar-menu li {
+  padding: 8px 20px;
   font-weight: bold;
-  font-size: 17px;
-}
-.navbar-list a {
-  margin-left: 35px;
   font-size: 20px;
+  transition: 0.3s;
+  display: flex;
 }
-.navbar-list a:hover {
-  color: #72a4f0;
+.navbar-menu li a {
+  color: white;
+  text-decoration: none;
 }
-.logo-text {
-  font-family: '로고폰트';
-  font-size: 40px;
-  margin-left: 10px;
-}
-.search-input {
+
+.search-in {
   border-radius: 6px;
   border: 4px solid #6b95d4;
   width: 220px;
   height: 45px;
   padding-left: 10px;
+  margin-right: 20px;
 }
 
-.search-btn {
-  border: none;
-  background: none;
-  outline: none;
-}
-.search-icon {
+.search-con {
   font-size: 30px;
   opacity: 0.9;
 }
-.search-input::placeholder {
-  font-size: 12px;
+
+.navbar-menu li a:hover {
+  color: #72a4f0;
 }
 
-.menu-toggle {
+.navbar-search {
+  display: flex;
+  padding-left: 0;
+}
+.navbar-search li {
+  padding: 8px 12px;
+}
+
+.navbar-togglebtn {
+  position: absolute;
+  right: 30px;
+  font-size: 30px;
   display: none;
 }
 
 @media screen and (max-width: 768px) {
-  .nav-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .nav-left {
+  .navbar {
     flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 24px;
   }
-  .navbar-list {
+  .navbar-menu {
     display: none;
-  }
-  .search-toggle {
-    display: none;
-  }
-  .menu-toggle {
-    display: inline-block;
-    position: absolute;
-    right: 30px;
-    font-size: 30px;
-    cursor: pointer;
-    opacity: 0.9;
-  }
-  .navbar-list.active {
-    display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
-  .search-toggle.active {
-    display: flex;
+  .navbar-menu li {
+    width: 100%;
+    text-align: center;
+    /* justify-content: center; */
+  }
+  .navbar-search {
+    display: none;
     justify-content: center;
-    align-items: center;
+    width: 100%;
+  }
+  .search-in {
+    margin: auto;
+  }
+  .search-con {
+    margin-left: 10px;
+    position: relative;
+    top: 2px;
+  }
+  .navbar-togglebtn {
+    display: block;
+  }
+
+  .navbar-menu.active,
+  .navbar-search.active {
+    display: flex;
   }
 }
