@@ -47,14 +47,14 @@ const AppLayout = () => {
               <input
                 type="search"
                 className="search-in"
-                placeholder="search"
+                placeholder="Let's search !"
                 value={keyword}
                 onChange={(event) => setKeyword(event.target.value)}
               />
               <FontAwesomeIcon
                 className="search-con"
                 icon={faSearch}
-                color="#fff"
+                color="lightgray"
               />
             </form>
           </li>
