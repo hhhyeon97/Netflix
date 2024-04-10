@@ -71,7 +71,9 @@ const NotFoundPage = () => {
         </svg>
         <p className="page-not">PAGE NOT FOUND</p>
         <p className="go-home">
-          <Link to="/">Home으로 돌아가기</Link>
+          <Link to="/" className="go-home-link">
+            Home으로 돌아가기
+          </Link>
         </p>
       </div>
     </div>

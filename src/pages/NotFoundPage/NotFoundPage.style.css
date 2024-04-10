@@ -24,3 +24,8 @@
 .go-home {
   font-size: 30px;
 }
+
+.go-home-link {
+  color: #6b95d4;
+  text-decoration: underline;
+}

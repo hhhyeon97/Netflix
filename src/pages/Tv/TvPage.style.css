@@ -1,3 +1,8 @@
+.tv-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .tv-text {
   color: white;
   text-align: center;
