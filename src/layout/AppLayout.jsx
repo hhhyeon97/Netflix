@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form';
 import { Outlet } from 'react-router-dom';
 import './AppLayout.style.css';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const AppLayout = () => {
   const [keyword, setKeyword] = useState('');
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const searchByKeyword = (event) => {
     event.preventDefault(); // 새로고침 방지
@@ -28,13 +32,13 @@ const AppLayout = () => {
               OLFLIX
             </Link>
           </div>
-          <div className="navbar-list">
+          <div className={`navbar-list ${isMenuOpen ? 'active' : ''}`}>
             <Link to="/">Home</Link>
             <Link to="/movies">Movie</Link>
             <Link to="/tv">TV</Link>
           </div>
         </div>
-        <Form className="d-flex" onSubmit={searchByKeyword}>
+        <form className={`d-flex search-area`} onSubmit={searchByKeyword}>
           <input
             type="search"
             placeholder="제목, 장르, 배우로 찾아보세요"
@@ -49,7 +53,13 @@ const AppLayout = () => {
               className="search-icon"
             />
           </button>
-        </Form>
+        </form>
+        <FontAwesomeIcon
+          icon={faBars}
+          color="#FFF"
+          className="menu-toggle"
+          onClick={handleMenuToggle}
+        />
       </div>
       <Outlet />
     </div>
