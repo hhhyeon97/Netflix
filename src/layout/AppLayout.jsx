@@ -42,11 +42,15 @@ const AppLayout = () => {
           <input
             type="search"
             placeholder="제목, 장르, 배우로 찾아보세요"
-            className="me-2 search-input"
+            className={`me-2 search-input search-toggle ${
+              isMenuOpen ? 'active' : ''
+            }`}
             value={keyword}
             onChange={(event) => setKeyword(event.target.value)}
           />
-          <button className="search-btn">
+          <button
+            className={`search-btn search-toggle ${isMenuOpen ? 'active' : ''}`}
+          >
             <FontAwesomeIcon
               icon={faSearch}
               color="#fff"

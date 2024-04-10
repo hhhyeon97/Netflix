@@ -75,11 +75,7 @@
   .navbar-list {
     display: none;
   }
-  .search-area {
-    display: none;
-  }
-  .search-input,
-  .search-icon {
+  .search-toggle {
     display: none;
   }
   .menu-toggle {
@@ -93,6 +89,11 @@
   .navbar-list.active {
     display: flex;
     flex-direction: column;
+    align-items: center;
+  }
+  .search-toggle.active {
+    display: flex;
+    justify-content: center;
     align-items: center;
   }
 }
