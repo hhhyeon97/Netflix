@@ -3,10 +3,16 @@ import './MovieCard.style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
+import { useNavigate } from 'react-router-dom';
 
 const MovieCard = ({ movie }) => {
   const { data: genreData } = useMovieGenreQuery();
   // console.log('ggg', genreData);
+  const navigate = useNavigate();
+
+  const goToDetail = () => {
+    navigate(`movies/${movie?.id}`);
+  };
 
   const showGenre = (genreIdList) => {
     if (!genreData) return [];
@@ -21,6 +27,7 @@ const MovieCard = ({ movie }) => {
 
   return (
     <div
+      onClick={goToDetail}
       className="movie-card"
       style={{
         backgroundImage:

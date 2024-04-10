@@ -8,7 +8,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 const PopularMovieSlide = () => {
   const { data, isLoading, isError, error } = usePopularMoviesQuery();
-  //console.log(data);
+  console.log(data);
   if (isLoading) {
     return (
       <div className="loading-spinner">
