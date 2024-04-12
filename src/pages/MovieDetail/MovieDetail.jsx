@@ -26,7 +26,7 @@ const MovieDetail = () => {
   return (
     <div>
       <div
-        className="movieDetailBg"
+        className="movie-detail-bg"
         style={{
           backgroundImage: `url(https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces${movie?.backdrop_path})`,
         }}

@@ -1,7 +1,7 @@
 .movie-detail-info {
   width: 100%;
   overflow: hidden;
-  margin: 10vh auto 0;
+  margin: -20vh auto 0;
   padding: 0 16px;
   position: relative;
   display: flex;
@@ -34,7 +34,7 @@
 }
 .detail-badge span {
   color: rgb(94, 95, 100);
-  background-color: rgba(243, 243, 241, 0.9);
+  background-color: aliceblue;
   border-radius: 5px;
   padding: 3px;
   font-family: 'Roboto', sans-serif;
