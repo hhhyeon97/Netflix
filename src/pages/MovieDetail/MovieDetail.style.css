@@ -1,6 +1,30 @@
-.update-text {
-  color: white;
-  text-align: center;
-  margin-top: 50px;
-  font-family: 'JalnanGothic';
+.movie-detail-bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 60vh;
+  background-position: center;
+}
+
+.movie-detail-bg:before {
+  content: '';
+  background: linear-gradient(to top, black, transparent);
+  position: absolute;
+  left: 0;
+  height: 60vh;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  top: -100px;
+}
+
+.movie-img {
+  width: 500px;
+  height: 500px;
+  border-radius: 4px;
+}
+
+.left-area {
+  margin: auto 10%;
 }

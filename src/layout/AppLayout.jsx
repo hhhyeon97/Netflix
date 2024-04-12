@@ -26,9 +26,7 @@ const AppLayout = () => {
     <div>
       <nav class="navbar">
         <div class="navbar-logo">
-          <Link to="/">
-            <span className="logo-color">S</span>OLFLIX
-          </Link>
+          <Link to="/">SOLFLIX</Link>
         </div>
         <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           <li>
