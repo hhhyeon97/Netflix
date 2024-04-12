@@ -14,23 +14,13 @@
   gap: 4px;
 }
 
-.adult_all,
-.adult_19 {
-  color: #fff;
-  border-radius: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8vw;
-  position: relative;
-  bottom: 1px;
+.movie-age-all {
+  color: rgb(48, 185, 82);
+  font-weight: bold;
 }
-.adult_all {
-  background: #5f92df;
-}
-.adult_19 {
-  background: #dc3545;
+
+.movie-age-19 {
+  color: #da636f;
 }
 
 @media (min-width: 465px) and (max-width: 1024px) {
@@ -38,22 +28,10 @@
     font-size: 1.8vw;
     column-gap: 1.5vw;
   }
-  .adult_all,
-  .adult_19 {
-    width: 2.8vw;
-    height: 2.8vw;
-    font-size: 1.2vw;
-  }
 }
 @media (min-width: 1025px) {
   .detail-tag-wrap {
     font-size: 0.9vw;
     column-gap: 0.7vw;
-  }
-  .adult_all,
-  .adult_19 {
-    width: 1.2vw;
-    height: 1.2vw;
-    font-size: 0.5vw;
   }
 }
