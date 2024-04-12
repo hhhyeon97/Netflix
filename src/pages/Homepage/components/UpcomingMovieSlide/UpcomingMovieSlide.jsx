@@ -4,6 +4,7 @@ import MovieSlider from '../../../../common/MovieSlider/MovieSlider';
 import { responsive } from '../../../../constants/responsive';
 import { useUpcomingMoviesQuery } from '../../../../hooks/useUpcomingMovies';
 import Spinner from 'react-bootstrap/Spinner';
+import Footer from '../../../../common/Footer/Footer';
 
 const UpcomingMovieSlide = () => {
   const { data, isLoading, isError, error } = useUpcomingMoviesQuery();
@@ -26,6 +27,7 @@ const UpcomingMovieSlide = () => {
         movies={data.results}
         responsive={responsive}
       />
+      <Footer />
     </div>
   );
 };
