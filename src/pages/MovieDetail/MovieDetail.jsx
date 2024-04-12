@@ -31,7 +31,7 @@ const MovieDetail = () => {
           backgroundImage: `url(https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces${movie?.backdrop_path})`,
         }}
       />
-      <Row className="mb-5">
+      <Row className="mb-5 detail-wrap">
         <Col className="left-area">
           {movie?.poster_path === null ? (
             <div className="poster-area">
