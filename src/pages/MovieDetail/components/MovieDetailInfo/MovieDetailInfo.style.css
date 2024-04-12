@@ -32,9 +32,12 @@
   padding-bottom: 0.5rem;
   flex-wrap: wrap;
 }
-.detail-badge .badge {
-  font-size: 3vw;
-  color: #4b92e4;
+.detail-badge span {
+  color: rgb(217, 221, 224);
+  background-color: rgba(33, 37, 41);
+  border-radius: 5px;
+  padding: 3px;
+  font-family: 'Roboto', sans-serif;
 }
 .detail-titleWrap {
   width: 100%;
@@ -97,9 +100,7 @@
   .detail-subtitle {
     font-size: 1.4rem;
   }
-  .detail-badge .badge {
-    font-size: 0.7em;
-  }
+
   .movie-detail-info .detail-tag-wrap {
     font-size: 0.7rem;
   }
@@ -143,9 +144,7 @@
   .detail-subtitle {
     font-size: 1.6rem;
   }
-  .detail-badge .badge {
-    font-size: 0.8em;
-  }
+
   .movie-detail-info .detail-tag-wrap {
     font-size: 1rem;
   }

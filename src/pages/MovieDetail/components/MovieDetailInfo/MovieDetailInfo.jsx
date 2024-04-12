@@ -1,5 +1,4 @@
 import React from 'react';
-import { Badge } from 'react-bootstrap';
 import MovieTag from '../../../../common/MovieTag/MovieTag';
 import './MovieDetailInfo.style.css';
 
@@ -29,9 +28,7 @@ const MovieDetailInfo = ({ movie }) => {
         <div className="detail-titleWrap">
           <div className="detail-badge">
             {movie?.genres.map((item, index) => (
-              <Badge bg="light" key={index}>
-                {item.name}
-              </Badge>
+              <span key={index}>{item.name}</span>
             ))}
           </div>
           <div className="detail-title">{movie?.title}</div>

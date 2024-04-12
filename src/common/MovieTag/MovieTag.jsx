@@ -7,7 +7,7 @@ const MovieTag = ({ movie }) => {
   return (
     <div className="detail-tag-wrap">
       <div className="movie-vote">
-        <FontAwesomeIcon icon={faStar} /> {movie.vote_average}
+        <FontAwesomeIcon icon={faStar} color="#ebedad" /> {movie.vote_average}
       </div>
       <div className="movie-popular">
         <FontAwesomeIcon icon={faThumbsUp} /> {movie.popularity}
@@ -16,7 +16,7 @@ const MovieTag = ({ movie }) => {
         {movie.adult ? (
           <span className="adult_19">19</span>
         ) : (
-          <span className="adult_all bd-success">ALL</span>
+          <span className="adult_all">ALL</span>
         )}
       </div>
     </div>
