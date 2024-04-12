@@ -13,13 +13,7 @@
   align-items: center;
   gap: 4px;
 }
-.movie-popular svg,
-.movie-vote img {
-  width: 3vw;
-}
-.movie-popular svg {
-  filter: invert();
-}
+
 .adult_all,
 .adult_19 {
   color: #fff;
@@ -28,7 +22,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-size: 1.8vw;
 }
 .adult_all {
@@ -64,9 +57,5 @@
     width: 1.2vw;
     height: 1.2vw;
     font-size: 0.5vw;
-  }
-  .movie-popular svg,
-  .movie-vote img {
-    width: 1vw;
   }
 }
