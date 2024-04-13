@@ -2,19 +2,13 @@ import React, { useState } from 'react';
 import './MoviePage.style.css';
 import { useSearchMovieQuery } from '../../hooks/useSearchMovie';
 import { useSearchParams } from 'react-router-dom';
-import {
-  Alert,
-  Container,
-  Row,
-  Col,
-  Dropdown,
-  DropdownButton,
-} from 'react-bootstrap';
+import { Alert, Container, Row, Col } from 'react-bootstrap';
 import MovieCard from '../../common/MovieCard/MovieCard';
 import ReactPaginate from 'react-paginate';
-import Spinner from 'react-bootstrap/Spinner';
+import LoadingSpinner from '../../common/LoadingSpinner/LoadingSpinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
+import PopularityFilter from './components/Filter/PopularityFilter';
 
 // 경로 2가지
 // nav바에서 클릭해서 온 경우 = > popularMovie 보여주기
@@ -28,12 +22,12 @@ import { faFilm } from '@fortawesome/free-solid-svg-icons';
 const MoviePage = () => {
   const [query, setQuery] = useSearchParams();
   const [page, setPage] = useState(1);
-  const [sortBy, setSortBy] = useState('popularity.desc');
+  const [sortBy, setSortBy] = useState(''); // 정렬 상태
+
   const keyword = query.get('q');
   const { data, isLoading, isError, error } = useSearchMovieQuery({
     keyword,
     page,
-    sortBy,
   });
   // console.log('ddd', data);
 
@@ -49,23 +43,31 @@ const MoviePage = () => {
   const pageCount =
     data?.total_pages > maxPageCount ? maxPageCount : data?.total_pages;
 
-  const handleSortChange = (sortByValue) => {
-    setSortBy(sortByValue);
-    setPage(1);
+  // 정렬 옵션 변경
+  const handleSortChange = (order) => {
+    setSortBy(order);
   };
 
+  // 필터링할 영화 데이터
+  let filteredMovies = data?.results || [];
+
+  // 정렬 적용
+  if (sortBy) {
+    filteredMovies.sort((a, b) => {
+      if (sortBy === 'asc') {
+        return a.vote_average - b.vote_average;
+      } else {
+        return b.vote_average - a.vote_average;
+      }
+    });
+  }
+
   if (isLoading) {
-    return (
-      <div className="loading-spinner">
-        <Spinner animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (isError) {
-    return <Alert variant="lignt">{error.message}</Alert>;
+    return <Alert variant="light">{error.message}</Alert>;
   }
 
   return (
@@ -74,57 +76,42 @@ const MoviePage = () => {
         <div>
           <h2 className="movie-page-title">
             <FontAwesomeIcon icon={faFilm} className="film-icon" />
-            &nbsp;Movie
+            &nbsp;Movie ({data.total_results})
           </h2>
         </div>
       </Row>
       <Row className="filter-btn-area">
-        <DropdownButton
-          id="dropdown-basic-button"
-          title="Sort by"
-          variant="light"
-        >
-          <Dropdown.Item onClick={() => handleSortChange('popularity.desc')}>
-            Popularity (High to Low)
-          </Dropdown.Item>
-          <Dropdown.Item onClick={() => handleSortChange('popularity.asc')}>
-            Popularity (Low to High)
-          </Dropdown.Item>
-        </DropdownButton>
+        <PopularityFilter onSortChange={handleSortChange} />
       </Row>
       <Row>
-        <Col>
-          <Row>
-            {data?.results.map((movie, index) => (
-              <Col key={index} lg={4} xs={12}>
-                <MovieCard movie={movie} />
-              </Col>
-            ))}
-          </Row>
-          <div className="pagination-container">
-            <ReactPaginate
-              nextLabel=">"
-              onPageChange={handlePageClick}
-              pageRangeDisplayed={5}
-              marginPagesDisplayed={2}
-              pageCount={pageCount}
-              previousLabel="<"
-              pageClassName="page-item"
-              pageLinkClassName="page-link"
-              previousClassName="page-item"
-              previousLinkClassName="page-link"
-              nextClassName="page-item"
-              nextLinkClassName="page-link"
-              breakLabel="..."
-              breakClassName="page-item"
-              breakLinkClassName="page-link"
-              containerClassName="pagination"
-              activeClassName="active"
-              renderOnZeroPageCount={null}
-              forcePage={page - 1}
-            />
-          </div>
-        </Col>
+        {data?.results.map((movie, index) => (
+          <Col key={index} lg={4} xs={12}>
+            <MovieCard movie={movie} />
+          </Col>
+        ))}
+        <div className="pagination-container">
+          <ReactPaginate
+            nextLabel=">"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            marginPagesDisplayed={2}
+            pageCount={pageCount}
+            previousLabel="<"
+            pageClassName="page-item"
+            pageLinkClassName="page-link"
+            previousClassName="page-item"
+            previousLinkClassName="page-link"
+            nextClassName="page-item"
+            nextLinkClassName="page-link"
+            breakLabel="..."
+            breakClassName="page-item"
+            breakLinkClassName="page-link"
+            containerClassName="pagination"
+            activeClassName="active"
+            renderOnZeroPageCount={null}
+            forcePage={page - 1}
+          />
+        </div>
       </Row>
     </Container>
   );

@@ -21,7 +21,7 @@ const MovieDetail = () => {
     return <LoadingSpinner />;
   }
   if (isError) {
-    return <Alert variant="danger">{error.message}</Alert>;
+    return <Alert variant="light">{error.message}</Alert>;
   }
 
   return (
