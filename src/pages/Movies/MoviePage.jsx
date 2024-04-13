@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './MoviePage.style.css';
 import { useSearchMovieQuery } from '../../hooks/useSearchMovie';
 import { useSearchParams } from 'react-router-dom';
-import { Alert, Container, Row } from 'react-bootstrap';
+import { Alert, Container, Row, Col } from 'react-bootstrap';
 import ReactPaginate from 'react-paginate';
 import LoadingSpinner from '../../common/LoadingSpinner/LoadingSpinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -106,18 +106,11 @@ const MoviePage = () => {
         <GenreFilter onGenreChange={handleGenreChange} />
       </Row>
       <Row>
-        {/* {data?.results.map((movie, index) => (
-          <Col key={index} lg={4} xs={12}>
-            <MovieCard movie={movie} />
+        {filteredMovies.map((movie, index) => (
+          <Col key={index}>
+            <MoviePageCard movie={movie} />
           </Col>
-        ))} */}
-        <ul>
-          {filteredMovies.map((movie, index) => (
-            <li key={index}>
-              <MoviePageCard movie={movie} />
-            </li>
-          ))}
-        </ul>
+        ))}
 
         <div className="pagination-container">
           <ReactPaginate

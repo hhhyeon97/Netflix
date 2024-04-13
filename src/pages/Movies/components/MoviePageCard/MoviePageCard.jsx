@@ -62,7 +62,7 @@ const MoviePageCard = ({ movie }) => {
             )}
           </div>
           <div className="view-text">
-            {shortenOverview(movie?.overview, 150)}
+            {shortenOverview(movie?.overview, 120)}
           </div>
         </div>
         <div className="movie-tag-area">
