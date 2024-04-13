@@ -27,10 +27,13 @@ const MovieReview = () => {
   return (
     <div className="movie-review-area">
       <h2 className="movie-review-title">Reviews ({review.length})</h2>
-      {review &&
+      {review.length === 0 ? (
+        <p className="no-review">작성된 리뷰가 없습니다.</p> // 리뷰가 없을 때의 메시지
+      ) : (
         review.map((reviewItem, index) => (
           <ReviewItem key={index} review={reviewItem} />
-        ))}
+        ))
+      )}
     </div>
   );
 };
@@ -47,7 +50,7 @@ const ReviewItem = ({ review }) => {
   return (
     <Card className="review-card mb-3 bg-dark text-white">
       <Card.Body>
-        <Card.Title>{review.author}</Card.Title>
+        <div className="review-author">{review.author}</div>
         <div className={`review-content ${expanded ? 'open' : ''}`}>
           {review.content.length > MAX_CONTENT_LENGTH ? (
             <>

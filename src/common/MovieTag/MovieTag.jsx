@@ -11,7 +11,7 @@ const MovieTag = ({ movie }) => {
         {movie.vote_average.toFixed(2)}
       </div>
       <div className="movie-popular">
-        <FontAwesomeIcon icon={faThumbsUp} color="#797b91" />{' '}
+        <FontAwesomeIcon icon={faThumbsUp} color="#8c8cab" />{' '}
         {movie.popularity.toFixed(2)}
       </div>
       {/* <div className="movie-adult">

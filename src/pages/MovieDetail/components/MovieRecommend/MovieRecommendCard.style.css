@@ -8,6 +8,7 @@
   position: relative;
   border-radius: 1rem;
   cursor: pointer;
+  font-family: 'Roboto', sans-serif;
 }
 .recommend-card-box::before {
   background-color: rgba(0, 0, 0, 0.3);
