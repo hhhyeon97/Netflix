@@ -1,0 +1,14 @@
+.movie-review-area {
+  margin: 30px 170px;
+}
+
+.movie-review-title {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.review-card {
+  width: 100%;
+  margin: 10px auto;
+}
