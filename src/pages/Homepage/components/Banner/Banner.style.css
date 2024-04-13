@@ -35,6 +35,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis; */
+  opacity: 0.9;
 }
 
 .banner-text-area > * {
@@ -54,6 +55,14 @@
 }
 .loading-spinner .spinner-border {
   border-width: 5px;
+}
+
+.pick-text {
+  font-family: 'JalnanGothic';
+  color: rgb(56, 108, 185);
+  font-style: italic;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-size: 20px;
 }
 
 @media screen and (max-width: 768px) {

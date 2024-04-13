@@ -36,6 +36,7 @@ const Banner = () => {
       }}
     >
       <div className="text-white banner-text-area">
+        <h3 className="pick-text">Today's Solflix Pick !</h3>
         <h1>{data.results[0].title}</h1>
         <p>{data.results[0].overview}</p>
       </div>
