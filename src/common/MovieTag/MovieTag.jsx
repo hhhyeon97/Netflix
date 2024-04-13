@@ -13,13 +13,6 @@ const MovieTag = ({ movie }) => {
       <div className="movie-popular">
         <FontAwesomeIcon icon={faThumbsUp} /> {movie.popularity.toFixed(2)}
       </div>
-      {/* <div className="movie-adult">
-        {movie.adult ? (
-          <span className="adult_19">19</span>
-        ) : (
-          <span className="adult_all">ALL</span>
-        )}
-      </div> */}
       <div>
         {movie.adult ? (
           <span className="movie-age-19">19</span>

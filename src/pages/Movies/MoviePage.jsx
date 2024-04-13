@@ -97,7 +97,7 @@ const MoviePage = () => {
           <h2 className="movie-page-title">
             <FontAwesomeIcon icon={faFilm} className="film-icon" />
             &nbsp;
-            {keyword ? `${keyword}` : 'Movie'}
+            {keyword ? `${keyword} (${data.total_results})` : 'Movie'}
           </h2>
         </div>
       </Row>
