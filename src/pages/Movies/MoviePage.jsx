@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './MoviePage.style.css';
 import { useSearchMovieQuery } from '../../hooks/useSearchMovie';
 import { useSearchParams } from 'react-router-dom';
@@ -9,6 +9,7 @@ import LoadingSpinner from '../../common/LoadingSpinner/LoadingSpinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import PopularityFilter from './components/Filter/PopularityFilter';
+import GenreFilter from './components/Filter/GenreFilter';
 
 // 경로 2가지
 // nav바에서 클릭해서 온 경우 = > popularMovie 보여주기
@@ -23,7 +24,7 @@ const MoviePage = () => {
   const [query, setQuery] = useSearchParams();
   const [page, setPage] = useState(1);
   const [sortBy, setSortBy] = useState(''); // 정렬 상태
-
+  const [genreFilter, setGenreFilter] = useState('');
   const keyword = query.get('q');
   const { data, isLoading, isError, error } = useSearchMovieQuery({
     keyword,
@@ -48,9 +49,20 @@ const MoviePage = () => {
     setSortBy(order);
   };
 
+  // 장르 옵션 변경
+  const handleGenreChange = (genreId) => {
+    setGenreFilter(genreId);
+  };
+
   // 필터링할 영화 데이터
   let filteredMovies = data?.results || [];
 
+  // 장르 필터
+  if (genreFilter) {
+    filteredMovies = filteredMovies.filter((movie) =>
+      movie.genre_ids.includes(parseInt(genreFilter)),
+    );
+  }
   // 정렬 적용
   if (sortBy) {
     filteredMovies.sort((a, b) => {
@@ -61,6 +73,14 @@ const MoviePage = () => {
       }
     });
   }
+  // 장르 필터 변경시 페이지 1
+  useEffect(() => {
+    setPage(1);
+  }, [genreFilter]);
+  // 키워드가 바뀌면 장르필터 초기화
+  useEffect(() => {
+    setGenreFilter('');
+  }, [keyword]);
 
   if (isLoading) {
     return <LoadingSpinner />;
@@ -76,12 +96,14 @@ const MoviePage = () => {
         <div>
           <h2 className="movie-page-title">
             <FontAwesomeIcon icon={faFilm} className="film-icon" />
-            &nbsp;Movie ({data.total_results})
+            &nbsp;
+            {keyword ? `${keyword}` : 'Movie'}
           </h2>
         </div>
       </Row>
       <Row className="filter-btn-area">
         <PopularityFilter onSortChange={handleSortChange} />
+        <GenreFilter onGenreChange={handleGenreChange} />
       </Row>
       <Row>
         {data?.results.map((movie, index) => (
