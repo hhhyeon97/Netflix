@@ -1,8 +1,11 @@
 import React from 'react';
 import MovieTag from '../../../../common/MovieTag/MovieTag';
 import './MovieDetailInfo.style.css';
+import MovieModal from '../MovieModal/MovieModal';
+import { useMovieInfoQuery } from '../../../../hooks/useMovieInfo';
 
-const MovieDetailInfo = ({ movie }) => {
+const MovieDetailInfo = ({ movie, id }) => {
+  const { data: video } = useMovieInfoQuery({ id });
   const priceToString = (price) => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
@@ -52,7 +55,7 @@ const MovieDetailInfo = ({ movie }) => {
             {movie?.runtime}분
           </li>
         </ul>
-        {/* 유투브 영상 */}
+        <MovieModal video={video} />
       </div>
     </div>
   );

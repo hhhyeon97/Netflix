@@ -1,0 +1,49 @@
+.watch-btn {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  border-radius: 6px;
+  border: 3px solid white;
+  transition: 0.3s;
+  z-index: 10;
+}
+
+.watch-btn:hover {
+  background-color: black;
+  color: rgb(60, 118, 226);
+  border-color: black;
+  transform: scale(1.2);
+}
+
+.modal-style {
+  background-color: black !important;
+}
+
+.modal-dialog.modal-50w {
+  width: 90%;
+  max-width: none;
+}
+
+.modal-body {
+  height: 50vh;
+  padding: 0 !important;
+  position: absolute;
+  bottom: 0;
+}
+
+.modal-dialog {
+  margin: auto;
+}
+
+.modal-dialog.modal-50w {
+  max-width: 50%;
+}
+
+.modal-header {
+  border: none !important;
+  filter: invert();
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}

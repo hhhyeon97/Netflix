@@ -1,7 +1,7 @@
 .detail-recommend-wrap {
   width: 90%;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 0 auto 30px;
   position: relative;
 }
 .recommend-title {
