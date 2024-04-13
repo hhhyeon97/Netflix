@@ -1,14 +1,22 @@
-.movie-review-area {
+/* .movie-review-area {
   margin: 30px 170px;
-}
+} */
 
 .movie-review-title {
-  margin-bottom: 20px;
   font-weight: bold;
   color: white;
+  margin: 20px auto;
+  text-align: center;
 }
 
 .review-card {
-  width: 100%;
+  width: 75%;
   margin: 10px auto;
+}
+
+@media screen and (max-width: 768px) {
+  .movie-review-title {
+    text-align: center;
+    margin: 20px auto;
+  }
 }

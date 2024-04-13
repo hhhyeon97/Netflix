@@ -26,7 +26,7 @@ const MovieReview = () => {
 
   return (
     <div className="movie-review-area">
-      <h2 className="movie-review-title">Movie Reviews</h2>
+      <h2 className="movie-review-title">Movie Reviews ({review.length})</h2>
       {review &&
         review.map((reviewItem, index) => (
           <ReviewItem key={index} review={reviewItem} />
@@ -45,7 +45,7 @@ const ReviewItem = ({ review }) => {
   const shouldShowButton = review.content.length > MAX_CONTENT_LENGTH;
 
   return (
-    <Card className="review-card mb-3">
+    <Card className="review-card mb-3 bg-dark text-white">
       <Card.Body>
         <Card.Title>{review.author}</Card.Title>
         <div className={`review-content ${expanded ? 'open' : ''}`}>
