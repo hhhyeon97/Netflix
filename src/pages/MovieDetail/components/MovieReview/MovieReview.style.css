@@ -1,6 +1,6 @@
-/* .movie-review-area {
-  margin: 30px 170px;
-} */
+.movie-review-area {
+  margin-bottom: 50px;
+}
 
 .movie-review-title {
   font-weight: bold;
@@ -35,6 +35,7 @@
 
 .review-content {
   font-family: 'Roboto', sans-serif;
+  text-align: center;
 }
 @media screen and (max-width: 768px) {
 }

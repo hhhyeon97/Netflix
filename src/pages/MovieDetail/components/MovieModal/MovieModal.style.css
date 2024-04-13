@@ -14,30 +14,22 @@
   transform: scale(1.2);
 }
 
+.modal-content {
+  background-color: #000 !important;
+  border-radius: 6px;
+  overflow: hidden;
+}
 .modal-style {
-  background-color: black !important;
+  height: 100%;
+  position: relative;
 }
-
-.modal-dialog.modal-50w {
-  width: 90%;
-  max-width: none;
+.modal-style::before {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-bottom: 30px;
+  position: relative;
 }
-
-.modal-body {
-  height: 50vh;
-  padding: 0 !important;
-  position: absolute;
-  bottom: 0;
-}
-
-.modal-dialog {
-  margin: auto;
-}
-
-.modal-dialog.modal-50w {
-  max-width: 50%;
-}
-
 .modal-header {
   border: none !important;
   filter: invert();
@@ -46,4 +38,11 @@
   left: 0;
   top: 0;
   z-index: 2;
+}
+.modal-body {
+  width: 100%;
+  height: 400px;
+  padding: 0 !important;
+  position: absolute;
+  bottom: 0;
 }
