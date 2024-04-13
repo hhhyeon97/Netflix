@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import LoadingSpinner from '../../common/LoadingSpinner/LoadingSpinner';
 import { Alert } from 'bootstrap';
 import MovieDetailInfo from './components/MovieDetailInfo/MovieDetailInfo';
+import MovieReview from './components/MovieReview/MovieReview';
 
 const MovieDetail = () => {
   const { id } = useParams();
@@ -34,6 +35,7 @@ const MovieDetail = () => {
       <MovieDetailInfo movie={movie} id={id} />
       {/*크레딧 */}
       {/*리뷰*/}
+      <MovieReview />
     </div>
   );
 };
