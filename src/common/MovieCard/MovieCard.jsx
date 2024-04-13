@@ -10,8 +10,8 @@ const MovieCard = ({ movie }) => {
   // console.log('ggg', genreData);
   const navigate = useNavigate();
 
-  const goToDetail = () => {
-    navigate(`movies/${movie?.id}`);
+  const goToDetail = (id) => {
+    navigate(`/movies/${id}`);
   };
 
   const showGenre = (genreIdList) => {
@@ -27,7 +27,7 @@ const MovieCard = ({ movie }) => {
 
   return (
     <div
-      onClick={goToDetail}
+      onClick={() => goToDetail(movie?.id)}
       className="movie-card"
       style={{
         backgroundImage:

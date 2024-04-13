@@ -7,6 +7,7 @@
   background-repeat: no-repeat;
   position: relative;
   border-radius: 1rem;
+  cursor: pointer;
 }
 .recommend-card-box::before {
   background-color: rgba(0, 0, 0, 0.3);
@@ -16,6 +17,11 @@
   position: absolute;
   width: 100%;
 }
+
+.recommend-card-box:hover {
+  opacity: 0.8;
+}
+
 .recommend-card-detail {
   display: flex;
   flex-direction: column;

@@ -3,6 +3,7 @@ import MovieReview from '../MovieReview/MovieReview';
 import MovieRecommend from '../MovieRecommend/MovieRecommend';
 import { useMovieRecommendQuery } from '../../../../hooks/useMovieRecommend';
 import { useParams } from 'react-router-dom';
+import './MovieTab.style.css';
 
 const MovieTab = () => {
   const { id } = useParams();
@@ -17,19 +18,32 @@ const MovieTab = () => {
     <div>
       <div className="tabs">
         <button
-          className={activeTab === 'review' ? 'active' : ''}
+          className={`tab-button ${activeTab === 'review' ? 'active' : ''}`}
           onClick={() => handleTabClick('review')}
         >
           Review
         </button>
         <button
-          className={activeTab === 'recommendation' ? 'active' : ''}
+          className={`tab-button ${
+            activeTab === 'recommendation' ? 'active' : ''
+          }`}
           onClick={() => handleTabClick('recommendation')}
         >
           Related Movies
         </button>
+        <div
+          className={`tab-underline ${
+            activeTab === 'review'
+              ? 'underline-review'
+              : 'underline-recommendation'
+          }`}
+        />
       </div>
-      <div className="tab-content">
+      <div
+        className={`tab-content ${
+          activeTab === 'review' ? 'active-review' : 'active-recommendation'
+        }`}
+      >
         {activeTab === 'review' && <MovieReview />}
         {activeTab === 'recommendation' && (
           <MovieRecommend recommend={recommend} />
