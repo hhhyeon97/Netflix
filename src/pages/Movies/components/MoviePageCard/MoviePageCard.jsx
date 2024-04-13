@@ -41,11 +41,15 @@ const MoviePageCard = ({ movie }) => {
     >
       <div className="overlay">
         <div>
-          <h1>{movie.title}</h1>
+          <h4>{movie.title}</h4>
           <div className="badge-wrap">
             {showGenre(movie.genre_ids).length > 0 ? (
               showGenre(movie.genre_ids).map((id, index) => (
-                <Badge bg="light" key={index} style={{ color: 'black' }}>
+                <Badge
+                  bg="light"
+                  key={index}
+                  style={{ color: 'black', margin: '5px' }}
+                >
                   {id}
                 </Badge>
               ))
@@ -57,9 +61,13 @@ const MoviePageCard = ({ movie }) => {
               </div>
             )}
           </div>
-          <div>{shortenOverview(movie?.overview, 150)}</div>
+          <div className="view-text">
+            {shortenOverview(movie?.overview, 150)}
+          </div>
         </div>
-        <MovieTag movie={movie} />
+        <div className="movie-tag-area">
+          <MovieTag movie={movie} />
+        </div>
       </div>
     </div>
   );

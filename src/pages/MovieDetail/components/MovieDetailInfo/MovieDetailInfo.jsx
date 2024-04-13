@@ -35,7 +35,7 @@ const MovieDetailInfo = ({ movie, id }) => {
             ))}
           </div>
           <div className="detail-title">{movie?.title}</div>
-          <div className="detail-subtitle">{movie?.tagline}</div>
+          <div className="detail-subtitle">"{movie?.tagline}"</div>
           <MovieTag movie={movie} />
         </div>
         <div className="detail-cont">{movie?.overview}</div>

@@ -38,6 +38,7 @@ const MovieModal = ({ video }) => {
 };
 
 export const MovieWatch = ({ video }) => {
+  console.log('video', video);
   const opts = {
     height: '100%',
     width: '100%',
