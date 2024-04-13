@@ -15,8 +15,4 @@
 }
 
 @media screen and (max-width: 768px) {
-  .movie-review-title {
-    text-align: center;
-    margin: 20px auto;
-  }
 }

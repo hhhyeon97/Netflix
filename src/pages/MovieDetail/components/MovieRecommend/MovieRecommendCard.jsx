@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMovieGenreQuery } from '../../../../hooks/useMovieGenre';
-import { Badge } from 'react-bootstrap';
 import MovieTag from '../../../../common/MovieTag/MovieTag';
+import './MovieRecommendCard.style.css';
 
 const MovieRecommendCard = ({ item }) => {
   const { data: genre } = useMovieGenreQuery();
@@ -24,11 +24,9 @@ const MovieRecommendCard = ({ item }) => {
       <div className="recommend-card-detail">
         <div className="recommend-card-title-wrap">
           <h4 className="recommend-card-title">{item?.title}</h4>
-          <div className="detail-badge">
+          <div className="recommend-genre-badge">
             {showGenre(item.genre_ids).map((id, index) => (
-              <Badge bg="danger" key={index}>
-                {id}
-              </Badge>
+              <span className="badge-bg">{id}</span>
             ))}
           </div>
         </div>
