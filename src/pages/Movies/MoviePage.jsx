@@ -10,6 +10,7 @@ import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import PopularityFilter from './components/Filter/PopularityFilter';
 import GenreFilter from './components/Filter/GenreFilter';
 import MoviePageCard from './components/MoviePageCard/MoviePageCard';
+// import ScrollUpBtn from '../../common/ScrollupBtn/ScrollUpBtn';
 
 // 경로 2가지
 // nav바에서 클릭해서 온 경우 = > popularMovie 보여주기
@@ -110,36 +111,42 @@ const MoviePage = () => {
         </Col>
       </Row>
       <Row>
-        {filteredMovies.map((movie, index) => (
-          <Col key={index}>
-            <MoviePageCard movie={movie} />
-          </Col>
-        ))}
-
-        <div className="pagination-container">
-          <ReactPaginate
-            nextLabel=">"
-            onPageChange={handlePageClick}
-            pageRangeDisplayed={5}
-            marginPagesDisplayed={2}
-            pageCount={pageCount}
-            previousLabel="<"
-            pageClassName="page-item"
-            pageLinkClassName="page-link"
-            previousClassName="page-item"
-            previousLinkClassName="page-link"
-            nextClassName="page-item"
-            nextLinkClassName="page-link"
-            breakLabel="..."
-            breakClassName="page-item"
-            breakLinkClassName="page-link"
-            containerClassName="pagination"
-            activeClassName="active"
-            renderOnZeroPageCount={null}
-            forcePage={page - 1}
-          />
-        </div>
+        {filteredMovies.length > 0 ? (
+          filteredMovies.map((movie, index) => (
+            <Col key={index}>
+              <MoviePageCard movie={movie} />
+            </Col>
+          ))
+        ) : (
+          <div className="not-found-result">No results found.</div>
+        )}
+        {filteredMovies.length > 0 && (
+          <div className="pagination-container">
+            <ReactPaginate
+              nextLabel=">"
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={5}
+              marginPagesDisplayed={2}
+              pageCount={pageCount}
+              previousLabel="<"
+              pageClassName="page-item"
+              pageLinkClassName="page-link"
+              previousClassName="page-item"
+              previousLinkClassName="page-link"
+              nextClassName="page-item"
+              nextLinkClassName="page-link"
+              breakLabel="..."
+              breakClassName="page-item"
+              breakLinkClassName="page-link"
+              containerClassName="pagination"
+              activeClassName="active"
+              renderOnZeroPageCount={null}
+              forcePage={page - 1}
+            />
+          </div>
+        )}
       </Row>
+      {/* <ScrollUpBtn /> */}
     </Container>
   );
 };

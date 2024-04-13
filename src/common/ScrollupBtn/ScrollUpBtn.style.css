@@ -1,0 +1,27 @@
+.scroll-up-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  /* background-color: #007bff; */
+  color: white;
+  width: 40px;
+  height: 40px;
+  border: none;
+  /* border-radius: 50%; */
+  cursor: pointer;
+  z-index: 1001;
+  /* display: none; */
+}
+
+.scroll-up-button:hover {
+  /* background-color: #0056b3; */
+}
+
+.scroll-up-button-icon {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.scroll-up-button--visible {
+  display: block;
+}
