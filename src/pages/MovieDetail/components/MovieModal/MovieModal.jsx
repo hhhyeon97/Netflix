@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import YouTube from 'react-youtube';
 import './MovieModal.style.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const MovieModal = ({ video }) => {
   const [show, setShow] = useState(false);
@@ -12,7 +14,8 @@ const MovieModal = ({ video }) => {
     <div>
       <div className="watch-btn-wrap">
         <button className="watch-btn" onClick={handleShow}>
-          Watch the trailer !
+          <FontAwesomeIcon icon={faYoutube} />
+          &nbsp;Watch the trailer !
         </button>
       </div>
       <div style={{ display: 'block', position: 'initial' }}>
