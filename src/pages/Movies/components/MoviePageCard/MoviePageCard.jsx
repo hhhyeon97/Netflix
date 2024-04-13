@@ -22,6 +22,12 @@ const MoviePageCard = ({ movie }) => {
     navigate(`/movies/${id}`);
   };
 
+  const shortenOverview = (overview, maxLength) => {
+    if (!overview) return '';
+    if (overview.length <= maxLength) return overview;
+    return overview.substring(0, maxLength) + '...';
+  };
+
   return (
     <div
       className="movie-detail-card"
@@ -36,7 +42,6 @@ const MoviePageCard = ({ movie }) => {
       <div className="overlay">
         <div>
           <h1>{movie.title}</h1>
-          <h4>{movie?.release_date.substr(0, 4)}</h4>
           <div className="badge-wrap">
             {showGenre(movie.genre_ids).length > 0 ? (
               showGenre(movie.genre_ids).map((id, index) => (
@@ -52,7 +57,7 @@ const MoviePageCard = ({ movie }) => {
               </div>
             )}
           </div>
-          <div>{movie?.overview}</div>
+          <div>{shortenOverview(movie?.overview, 150)}</div>
         </div>
         <MovieTag movie={movie} />
       </div>
