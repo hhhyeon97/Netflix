@@ -26,7 +26,7 @@ const MovieReview = () => {
 
   return (
     <div className="movie-review-area">
-      <h2 className="movie-review-title">Movie Reviews ({review.length})</h2>
+      <h2 className="movie-review-title">Reviews ({review.length})</h2>
       {review &&
         review.map((reviewItem, index) => (
           <ReviewItem key={index} review={reviewItem} />

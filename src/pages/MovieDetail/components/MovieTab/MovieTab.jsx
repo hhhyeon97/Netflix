@@ -29,7 +29,7 @@ const MovieTab = () => {
           }`}
           onClick={() => handleTabClick('recommendation')}
         >
-          Related Movies
+          Related
         </button>
         <div
           className={`tab-underline ${
