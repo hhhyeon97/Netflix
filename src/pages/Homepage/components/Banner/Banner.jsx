@@ -3,13 +3,14 @@ import { usePopularMoviesQuery } from '../../../../hooks/usePopularMovies';
 import Alert from 'react-bootstrap/Alert';
 import './Banner.style.css';
 import Spinner from 'react-bootstrap/Spinner';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const Banner = () => {
   const { data, isLoading, isError, error } = usePopularMoviesQuery();
 
-  //console.log('ddd', data);
+  // console.log('ddd', data);
+
   if (isLoading) {
     return (
       <div className="loading-spinner-container">
@@ -46,9 +47,8 @@ const Banner = () => {
           <FontAwesomeIcon icon={faStar} />
           &nbsp;
           {Math.floor(data.results[0].vote_average)}
-        </span> */}
-        <span>{data.results[0].vat}</span>
-        {/*서브문구로바꾸기-없을땐overview */}
+        </span>*/}
+        <span>{data.results[0].tagline}</span>
         <p>{data.results[0].overview}</p>
       </div>
     </div>

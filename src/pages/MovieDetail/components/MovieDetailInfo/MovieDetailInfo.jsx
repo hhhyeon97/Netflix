@@ -28,14 +28,14 @@ const MovieDetailInfo = ({ movie, id }) => {
         )}
       </div>
       <div className="detail-cont-wrap">
-        <div className="detail-titleWrap">
+        <div className="detail-title-wrap">
           <div className="detail-badge">
             {movie?.genres.map((item, index) => (
               <span key={index}>{item.name}</span>
             ))}
           </div>
           <div className="detail-title">{movie?.title}</div>
-          <div className="detail-subtitle">"{movie?.tagline}"</div>
+          <div className="detail-subtitle">{movie?.tagline}</div>
           <MovieTag movie={movie} />
         </div>
         <div className="detail-cont">{movie?.overview}</div>

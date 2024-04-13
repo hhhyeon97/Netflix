@@ -1,14 +1,19 @@
 .genre-button {
   background-color: transparent;
-  color: black;
+  color: rgb(84, 84, 88);
   padding: 8px 16px;
   margin: 4px;
   cursor: pointer;
   background-color: aliceblue;
   font-family: 'Roboto', sans-serif;
   border-radius: 6px;
+  font-weight: bold;
+  border: 3px solid white;
 }
-
+.genre-button:hover {
+  opacity: 0.95;
+}
 .genre-button.active {
   background-color: rgb(72, 117, 201);
+  color: aliceblue;
 }

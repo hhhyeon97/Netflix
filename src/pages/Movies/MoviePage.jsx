@@ -102,8 +102,12 @@ const MoviePage = () => {
         </div>
       </Row>
       <Row className="filter-btn-area">
-        <PopularityFilter onSortChange={handleSortChange} />
-        <GenreFilter onGenreChange={handleGenreChange} />
+        <div className="popularity-btn-area">
+          <PopularityFilter onSortChange={handleSortChange} />
+        </div>
+        <Col className="genre-btn-area">
+          <GenreFilter onGenreChange={handleGenreChange} />
+        </Col>
       </Row>
       <Row>
         {filteredMovies.map((movie, index) => (

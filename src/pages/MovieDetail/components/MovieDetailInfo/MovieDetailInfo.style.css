@@ -36,11 +36,11 @@
   color: rgb(94, 95, 100);
   background-color: aliceblue;
   border-radius: 5px;
-  padding: 3px;
+  padding: 3px 10px;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
 }
-.detail-titleWrap {
+.detail-title-wrap {
   width: 100%;
 }
 .detail-title {

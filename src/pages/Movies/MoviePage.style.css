@@ -25,7 +25,7 @@
   align-items: center;
   cursor: pointer;
   transition: all 0.3s;
-  background-color: rgb(71, 122, 199);
+  background-color: rgb(72, 117, 201);
 }
 
 .pagination .page-link:hover {
@@ -54,4 +54,8 @@
 .filter-btn-area {
   text-align: right;
   margin: 20px auto;
+}
+
+.genre-btn-area {
+  text-align: center;
 }
