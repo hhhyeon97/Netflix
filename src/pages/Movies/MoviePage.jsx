@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './MoviePage.style.css';
 import { useSearchMovieQuery } from '../../hooks/useSearchMovie';
 import { useSearchParams } from 'react-router-dom';
-import { Alert, Container, Row, Col } from 'react-bootstrap';
-import MovieCard from '../../common/MovieCard/MovieCard';
+import { Alert, Container, Row } from 'react-bootstrap';
 import ReactPaginate from 'react-paginate';
 import LoadingSpinner from '../../common/LoadingSpinner/LoadingSpinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import PopularityFilter from './components/Filter/PopularityFilter';
 import GenreFilter from './components/Filter/GenreFilter';
+import MoviePageCard from './components/MoviePageCard/MoviePageCard';
 
 // 경로 2가지
 // nav바에서 클릭해서 온 경우 = > popularMovie 보여주기
@@ -73,7 +73,7 @@ const MoviePage = () => {
       }
     });
   }
-  // 장르 필터 변경시 페이지 1
+  // 장르 필터 변경시 페이지 초기화
   useEffect(() => {
     setPage(1);
   }, [genreFilter]);
@@ -106,11 +106,19 @@ const MoviePage = () => {
         <GenreFilter onGenreChange={handleGenreChange} />
       </Row>
       <Row>
-        {data?.results.map((movie, index) => (
+        {/* {data?.results.map((movie, index) => (
           <Col key={index} lg={4} xs={12}>
             <MovieCard movie={movie} />
           </Col>
-        ))}
+        ))} */}
+        <ul>
+          {filteredMovies.map((movie, index) => (
+            <li key={index}>
+              <MoviePageCard movie={movie} />
+            </li>
+          ))}
+        </ul>
+
         <div className="pagination-container">
           <ReactPaginate
             nextLabel=">"
