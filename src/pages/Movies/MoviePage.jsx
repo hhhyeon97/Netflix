@@ -2,10 +2,19 @@ import React, { useState } from 'react';
 import './MoviePage.style.css';
 import { useSearchMovieQuery } from '../../hooks/useSearchMovie';
 import { useSearchParams } from 'react-router-dom';
-import { Alert, Container, Row, Col } from 'react-bootstrap';
+import {
+  Alert,
+  Container,
+  Row,
+  Col,
+  Dropdown,
+  DropdownButton,
+} from 'react-bootstrap';
 import MovieCard from '../../common/MovieCard/MovieCard';
 import ReactPaginate from 'react-paginate';
 import Spinner from 'react-bootstrap/Spinner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilm } from '@fortawesome/free-solid-svg-icons';
 
 // 경로 2가지
 // nav바에서 클릭해서 온 경우 = > popularMovie 보여주기
@@ -19,10 +28,12 @@ import Spinner from 'react-bootstrap/Spinner';
 const MoviePage = () => {
   const [query, setQuery] = useSearchParams();
   const [page, setPage] = useState(1);
+  const [sortBy, setSortBy] = useState('popularity.desc');
   const keyword = query.get('q');
   const { data, isLoading, isError, error } = useSearchMovieQuery({
     keyword,
     page,
+    sortBy,
   });
   // console.log('ddd', data);
 
@@ -37,6 +48,11 @@ const MoviePage = () => {
   // 페이지 수가 최대 페이지 수를 초과하는 경우, 최대 페이지 수로 설정
   const pageCount =
     data?.total_pages > maxPageCount ? maxPageCount : data?.total_pages;
+
+  const handleSortChange = (sortByValue) => {
+    setSortBy(sortByValue);
+    setPage(1);
+  };
 
   if (isLoading) {
     return (
@@ -53,12 +69,31 @@ const MoviePage = () => {
   }
 
   return (
-    <Container>
+    <Container className="movie-page-area">
       <Row>
-        <Col lg={4} xs={12}>
-          필터부분
-        </Col>
-        <Col lg={8} xs={12}>
+        <div>
+          <h2 className="movie-page-title">
+            <FontAwesomeIcon icon={faFilm} className="film-icon" />
+            &nbsp;Movie
+          </h2>
+        </div>
+      </Row>
+      <Row className="filter-btn-area">
+        <DropdownButton
+          id="dropdown-basic-button"
+          title="Sort by"
+          variant="light"
+        >
+          <Dropdown.Item onClick={() => handleSortChange('popularity.desc')}>
+            Popularity (High to Low)
+          </Dropdown.Item>
+          <Dropdown.Item onClick={() => handleSortChange('popularity.asc')}>
+            Popularity (Low to High)
+          </Dropdown.Item>
+        </DropdownButton>
+      </Row>
+      <Row>
+        <Col>
           <Row>
             {data?.results.map((movie, index) => (
               <Col key={index} lg={4} xs={12}>

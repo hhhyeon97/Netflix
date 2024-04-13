@@ -43,3 +43,15 @@
   opacity: 0.5;
   pointer-events: none;
 }
+
+.movie-page-title {
+  font-family: 'JalnanGothic';
+  color: rgb(72, 124, 192);
+  text-align: center;
+  margin: 10px auto;
+}
+
+.filter-btn-area {
+  text-align: right;
+  margin: 20px auto;
+}
