@@ -17,3 +17,34 @@
   background-color: rgb(72, 117, 201);
   color: aliceblue;
 }
+
+.mobile-genre-filter {
+  display: none;
+}
+
+.genre-select {
+  font-family: 'Roboto', sans-serif;
+  margin: 20px 30px;
+  max-width: 35%;
+  float: left;
+  position: relative;
+  bottom: 78px;
+}
+
+@media screen and (max-width: 768px) {
+  .desktop-genre-filter {
+    display: none;
+  }
+  .mobile-genre-filter {
+    display: block;
+  }
+  .genre-select {
+    bottom: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .genre-select {
+    max-width: 40%;
+  }
+}

@@ -22,6 +22,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 10px;
 }
 
@@ -38,7 +39,7 @@
 }
 
 .overlay .movie-tag-area {
-  margin: 20px auto;
+  margin: 10px auto;
 }
 
 .badge-wrap {

@@ -2,7 +2,7 @@ import React from 'react';
 import { usePopularMoviesQuery } from '../../../../hooks/usePopularMovies';
 import Alert from 'react-bootstrap/Alert';
 import './Banner.style.css';
-import Spinner from 'react-bootstrap/Spinner';
+import LoadingSpinner from '../../../../common/LoadingSpinner/LoadingSpinner';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faStar } from '@fortawesome/free-solid-svg-icons';
 
@@ -12,21 +12,11 @@ const Banner = () => {
   // console.log('ddd', data);
 
   if (isLoading) {
-    return (
-      <div className="loading-spinner-container">
-        <Spinner
-          animation="border"
-          role="status"
-          variant="light"
-          className="loading-spinner"
-          style={{ width: '100px', height: '100px' }}
-        />
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (isError) {
-    return <Alert variant="danger">{error.message}</Alert>;
+    return <Alert variant="light">{error.message}</Alert>;
   }
   return (
     <div

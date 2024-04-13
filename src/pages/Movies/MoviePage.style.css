@@ -59,3 +59,11 @@
 .genre-btn-area {
   text-align: center;
 }
+
+@media screen and (max-width: 768px) {
+  .movie-page-title {
+    margin: 30px auto 0;
+    position: relative;
+    top: 30px;
+  }
+}

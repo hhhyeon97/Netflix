@@ -53,7 +53,6 @@ export const MovieWatch = ({ video }) => {
         videoId={video && video[0]?.key}
         style={{ height: '100%' }}
         opts={opts}
-        onReady={(event) => event.target.mute()}
       />
     </div>
   );

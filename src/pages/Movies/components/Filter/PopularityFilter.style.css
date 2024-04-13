@@ -4,3 +4,16 @@
   max-width: 35%;
   float: right;
 }
+
+@media screen and (max-width: 768px) {
+  .popularity-box {
+    position: relative;
+    top: 77px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .popularity-box {
+    max-width: 40%;
+  }
+}
