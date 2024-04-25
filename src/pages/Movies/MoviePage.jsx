@@ -10,7 +10,7 @@ import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import PopularityFilter from './components/Filter/PopularityFilter';
 import GenreFilter from './components/Filter/GenreFilter';
 import MoviePageCard from './components/MoviePageCard/MoviePageCard';
-// import ScrollUpBtn from '../../common/ScrollupBtn/ScrollUpBtn';
+import ScrollUpBtn from '../../common/ScrollUpBtn/ScrollUpBtn';
 
 // 경로 2가지
 // nav바에서 클릭해서 온 경우 = > popularMovie 보여주기
@@ -146,7 +146,7 @@ const MoviePage = () => {
           </div>
         )}
       </Row>
-      {/* <ScrollUpBtn /> */}
+      <ScrollUpBtn />
     </Container>
   );
 };

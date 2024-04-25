@@ -1,27 +1,35 @@
-.scroll-up-button {
+.scroll-up-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  /* background-color: #007bff; */
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: #222020;
   width: 40px;
   height: 40px;
-  border: none;
-  /* border-radius: 50%; */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  z-index: 1001;
-  /* display: none; */
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  opacity: 0;
+  visibility: hidden;
 }
 
-.scroll-up-button:hover {
-  /* background-color: #0056b3; */
+.scroll-up-btn.show {
+  opacity: 1;
+  visibility: visible;
 }
 
-.scroll-up-button-icon {
-  font-size: 20px;
-  margin-top: 10px;
+.scroll-up-btn:hover {
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
-.scroll-up-button--visible {
-  display: block;
+.scroll-up-btn:focus {
+  outline: none;
+}
+
+.scroll-up-btn svg {
+  width: 20px;
+  height: 20px;
 }

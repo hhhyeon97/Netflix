@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import './ScrollUpBtn.style.css';
@@ -6,24 +6,16 @@ import './ScrollUpBtn.style.css';
 const ScrollUpBtn = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // 스크롤 이벤트 리스너
-  useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
+  // 화면이 스크롤되면 버튼 표시하거나 숨기기
+  const toggleVisibility = () => {
+    if (window.pageYOffset > 300) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
 
-    window.addEventListener('scroll', toggleVisibility);
-
-    // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
-    return () => {
-      window.removeEventListener('scroll', toggleVisibility);
-    };
-  }, []);
-
+  // 화면을 맨 위로 스크롤
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -31,11 +23,14 @@ const ScrollUpBtn = () => {
     });
   };
 
+  window.addEventListener('scroll', toggleVisibility);
+
   return (
-    <div className={`scroll-up-button ${isVisible ? 'show' : 'hide'}`}>
-      <button onClick={scrollToTop}>
-        <FontAwesomeIcon icon={faArrowUp} />
-      </button>
+    <div
+      className={`scroll-up-btn ${isVisible ? 'show' : ''}`}
+      onClick={scrollToTop}
+    >
+      <FontAwesomeIcon icon={faArrowUp} />
     </div>
   );
 };
